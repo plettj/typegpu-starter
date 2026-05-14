@@ -1,20 +1,21 @@
 import { setupControls } from "./controls";
 import { initGPU } from "./gpu";
-import { createPointPipeline, createPositionBuffer } from "./pipeline";
+import { createPipelines, createPositionBuffer } from "./pipeline";
 import { createRenderer } from "./renderer";
 
 const MAX_POINTS = 3;
 const canvas = document.querySelector("canvas") as HTMLCanvasElement;
 
 const { device, context, format } = await initGPU(canvas);
-const pipeline = createPointPipeline(device, format);
+const pipelines = createPipelines(device, format);
 const positionBuffer = createPositionBuffer(device, MAX_POINTS);
-const draw = createRenderer(device, context, pipeline, positionBuffer);
+const draw = createRenderer(device, context, positionBuffer);
 
 let pointCount = 0;
-draw(pointCount);
+draw(pipelines[pointCount - 1], pointCount);
 
 setupControls(canvas, (normX, normY) => {
+  if (pointCount >= 3) pointCount = 0;
   // Write the new point into the buffer at the current index
   device.queue.writeBuffer(
     positionBuffer,
@@ -22,5 +23,5 @@ setupControls(canvas, (normX, normY) => {
     new Float32Array([normX, normY]),
   );
   pointCount = Math.min(pointCount + 1, MAX_POINTS);
-  draw(pointCount);
+  draw(pipelines[pointCount - 1], pointCount);
 });

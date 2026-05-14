@@ -2,10 +2,9 @@
 export function createRenderer(
   device: GPUDevice,
   context: GPUCanvasContext,
-  pipeline: GPURenderPipeline,
   positionBuffer: GPUBuffer,
 ) {
-  return function draw(pointCount: number) {
+  return function draw(pipeline: GPURenderPipeline, pointCount: number) {
     const encoder = device.createCommandEncoder();
 
     const pass = encoder.beginRenderPass({

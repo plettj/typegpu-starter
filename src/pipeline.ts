@@ -1,10 +1,19 @@
-// Creates the WGSL shader, render pipeline, and vertex buffer for point rendering.
-export function createPointPipeline(
+// Creates the WGSL shader, render pipeline, and vertex buffer for rendering points, lines, and triangles.
+export function createPipelines(device: GPUDevice, format: GPUTextureFormat) {
+  return [
+    createPipeline(device, format, "point-list"),
+    createPipeline(device, format, "line-strip"),
+    createPipeline(device, format, "triangle-list"),
+  ];
+}
+
+function createPipeline(
   device: GPUDevice,
   format: GPUTextureFormat,
+  topology: GPUPrimitiveTopology,
 ) {
   const shader = device.createShaderModule({
-    label: "point shader",
+    label: "primitive shader",
     code: `
       @vertex
       fn vs(@location(0) pos: vec2f) -> @builtin(position) vec4f {
@@ -19,7 +28,7 @@ export function createPointPipeline(
   });
 
   const pipeline = device.createRenderPipeline({
-    label: "point pipeline",
+    label: "primitive pipeline",
     layout: "auto",
     vertex: {
       module: shader,
@@ -31,7 +40,7 @@ export function createPointPipeline(
       ],
     },
     fragment: { module: shader, targets: [{ format }] },
-    primitive: { topology: "point-list" },
+    primitive: { topology: topology },
   });
 
   return pipeline;
