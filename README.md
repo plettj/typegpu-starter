@@ -1,6 +1,18 @@
-# Experimentation with WebGPU
+# Modern, Minimal WebGPU Starter Code
 
-I want to learn modern web graphics technology.
+A minimal TypeScript + WebGPU project using [Vite](https://vite.dev) and [TypeGPU](https://typegpu.com). Clicking on the canvas allows you to create points, lines, and triangles.
 
-- Type safe GPU code: [TypeGPU](https://docs.swmansion.com/TypeGPU/)
-- Simple example: [triangle](https://stackblitz.com/edit/bvwfprkx?file=src%2Findex.ts)
+## Getting Started
+
+​`bash
+pnpm i
+pnpm run dev
+​`
+
+This repo's goal is to "just work" with modern tooling. If you don't have [pnpm](https://pnpm.io/) (**p**erformant [npm](https://nodejs.org/en/download)), just run `npm install -g pnpm`.
+
+Requires a browser with WebGPU support (Chrome 113+, Edge 113+).
+
+## Usage
+
+Just fork this repo and start cooking!
