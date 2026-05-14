@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      typegpu:
+        specifier: ^0.11.4
+        version: 0.11.4
     devDependencies:
       '@webgpu/types':
         specifier: ^0.1.70
@@ -259,12 +263,26 @@ packages:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
     engines: {node: '>=0.10.0'}
 
+  tinyest@0.3.1:
+    resolution: {integrity: sha512-SJNnjbvTEo5VmIjsMYpUFL34b9RyaI382r1v7gyVXZpd4VnjIZKMrGk1mphXM4zkhrs3hZfO1Xwv63DoZX50yw==}
+    engines: {node: '>=12.20.0'}
+
   tinyglobby@0.2.16:
     resolution: {integrity: sha512-pn99VhoACYR8nFHhxqix+uvsbXineAasWm5ojXoN8xEwK5Kd3/TrhNn1wByuD52UxWRLy8pu+kRMniEi6Eq9Zg==}
     engines: {node: '>=12.0.0'}
 
   tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
+
+  tsover-runtime@0.0.6:
+    resolution: {integrity: sha512-5h/j9l4SwMSVfTMLVC/d+dkRjgh2xj+WHkivs5hhSwqACbG3JKXxp+9jneRoT07oJRHb97b5nKafsPtZEAdQMg==}
+
+  typed-binary@4.3.3:
+    resolution: {integrity: sha512-W2hLsSzt3k/tg38gDE4Fn/QiwcoqGuUHBc2cb3mXuH7KcYxe/GM57vzW14s2/bawB4R5knGgGq8Xb57vsaJ4Sg==}
+
+  typegpu@0.11.4:
+    resolution: {integrity: sha512-Ww+zBHYg9g+FYnpJl0ee1fDE0C0h1NQa1dmVCA/QxuoqEV8j8byxPeC9Iv1rg/qe8zXoXJie+XupEOEEADj55A==}
+    engines: {node: '>=12.20.0'}
 
   typescript@6.0.3:
     resolution: {integrity: sha512-y2TvuxSZPDyQakkFRPZHKFm+KKVqIisdg9/CZwm9ftvKXLP8NRWj38/ODjNbr43SsoXqNuAisEf1GdCxqWcdBw==}
@@ -492,6 +510,8 @@ snapshots:
 
   source-map-js@1.2.1: {}
 
+  tinyest@0.3.1: {}
+
   tinyglobby@0.2.16:
     dependencies:
       fdir: 6.5.0(picomatch@4.0.4)
@@ -499,6 +519,16 @@ snapshots:
 
   tslib@2.8.1:
     optional: true
+
+  tsover-runtime@0.0.6: {}
+
+  typed-binary@4.3.3: {}
+
+  typegpu@0.11.4:
+    dependencies:
+      tinyest: 0.3.1
+      tsover-runtime: 0.0.6
+      typed-binary: 4.3.3
 
   typescript@6.0.3: {}
 

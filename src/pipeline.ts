@@ -1,3 +1,5 @@
+import { d, TgpuRoot } from "typegpu";
+
 // Creates the WGSL shader, render pipeline, and vertex buffer for rendering points, lines, and triangles.
 export function createPipelines(device: GPUDevice, format: GPUTextureFormat) {
   return [
@@ -47,10 +49,6 @@ function createPipeline(
 }
 
 // Allocates a GPU vertex buffer for `maxPoints` vec2f positions.
-export function createPositionBuffer(device: GPUDevice, maxPoints: number) {
-  return device.createBuffer({
-    label: "positions",
-    size: maxPoints * 2 * 4,
-    usage: GPUBufferUsage.VERTEX | GPUBufferUsage.COPY_DST,
-  });
+export function createPositionBuffer(root: TgpuRoot, maxPoints: number) {
+  return root.createBuffer(d.arrayOf(d.vec2f, maxPoints)).$usage("vertex");
 }

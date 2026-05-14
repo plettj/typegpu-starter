@@ -15,13 +15,9 @@ function updateCanvasSize(canvas: HTMLCanvasElement) {
   canvas.height = canvas.clientHeight * window.devicePixelRatio;
 }
 
-export function setupResizeObserver(
-  canvas: HTMLCanvasElement,
-  onResize: () => void,
-) {
+export function setupResizeObserver(canvas: HTMLCanvasElement) {
   updateCanvasSize(canvas);
   new ResizeObserver(() => {
     updateCanvasSize(canvas);
-    onResize();
   }).observe(canvas);
 }
