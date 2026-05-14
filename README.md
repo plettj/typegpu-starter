@@ -1,4 +1,4 @@
-# Modern, Minimal WebGPU Starter Code
+# WebGPU Project
 
 A minimal TypeScript + WebGPU project using [Vite](https://vite.dev) and [TypeGPU](https://typegpu.com). Clicking on the canvas allows you to create points, lines, and triangles.
 
