@@ -9,3 +9,19 @@ export function setupControls(
     onPoint(normX, normY);
   });
 }
+
+function updateCanvasSize(canvas: HTMLCanvasElement) {
+  canvas.width = canvas.clientWidth * window.devicePixelRatio;
+  canvas.height = canvas.clientHeight * window.devicePixelRatio;
+}
+
+export function setupResizeObserver(
+  canvas: HTMLCanvasElement,
+  onResize: () => void,
+) {
+  updateCanvasSize(canvas);
+  new ResizeObserver(() => {
+    updateCanvasSize(canvas);
+    onResize();
+  }).observe(canvas);
+}

@@ -4,9 +4,9 @@ An unordered list.
 
 **Clean Infrastructure**
 
-- [ ] Gracefully handle if WebGPU is not supported.
-- [ ] Full-screen canvas, sized in a standard manner.
+- [x] Full-screen canvas, sized in a standard manner.
 - [ ] TypeGPU: Pipeline to support consistent frame rates.
+- [ ] Gracefully handle if WebGPU is not supported.
 
 **Cool-looking Stuff**
 

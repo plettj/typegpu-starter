@@ -2,17 +2,14 @@ body {
   margin: 0;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
   background: #000;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 canvas {
-  width: 640px;
-  height: 640px;
-  border: 1px solid #fff;
+  display: block;
+  width: 100vw;
+  height: 100vh;
   cursor: crosshair;
 
   image-rendering: pixelated;
