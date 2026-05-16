@@ -1,6 +1,5 @@
 import tgpu from "typegpu";
 
-// Initializes the WebGPU adapter, device, and configures the canvas context.
 export async function initGPU(canvas: HTMLCanvasElement) {
   const adapter = await navigator.gpu?.requestAdapter();
   if (!adapter) throw new Error("WebGPU not supported");

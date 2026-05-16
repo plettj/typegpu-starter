@@ -1,4 +1,3 @@
-// Listens for canvas clicks and invokes `onPoint` with normalized clip-space coords.
 export function setupControls(
   canvas: HTMLCanvasElement,
   onPoint: (normX: number, normY: number) => void,
