@@ -8,10 +8,10 @@ _Clicking on the canvas draws points, lines, and triangles._
 
 ## Usage
 
-​```sh
+```sh
 pnpm i
 pnpm run dev
-​```
+```
 
 ## Recommended Readings
 
