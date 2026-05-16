@@ -7,6 +7,8 @@ export async function initGPU(canvas: HTMLCanvasElement) {
   const root = await tgpu.init();
 
   const context = canvas.getContext("webgpu") as GPUCanvasContext;
+  if (!context) throw new Error("WebGPU not supported");
+
   const format = navigator.gpu.getPreferredCanvasFormat();
 
   context.configure({ device: root.device, format });

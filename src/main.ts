@@ -8,14 +8,15 @@ const MAX_POINTS = 3;
 const canvas = document.querySelector("canvas") as HTMLCanvasElement;
 setupResizeObserver(canvas);
 
-const { root, context } = await initGPU(canvas);
+const { root, context, format } = await initGPU(canvas);
+
 const positionBuffer = root
   .createBuffer(d.arrayOf(d.vec2f, MAX_POINTS))
   .$usage("vertex");
 const renderPipelines = [
-  createRenderPipeline(root, { topology: "point-list" }),
-  createRenderPipeline(root, { topology: "line-strip" }),
-  createRenderPipeline(root, { topology: "triangle-list" }),
+  createRenderPipeline(root, format, { topology: "point-list" }),
+  createRenderPipeline(root, format, { topology: "line-strip" }),
+  createRenderPipeline(root, format, { topology: "triangle-list" }),
 ];
 
 let pointCount = 0;
@@ -27,6 +28,7 @@ setupControls(canvas, (normX, normY) => {
   // Write the new point into the position buffer, at the current index.
   positionBuffer.patch({ [pointCount - 1]: [normX, normY] });
 
+  // Draw, by invoking the TypeGPU pipeline.
   renderPipelines[pointCount - 1]
     .with(vertexLayout, positionBuffer)
     .withColorAttachment({ view: context })
