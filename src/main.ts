@@ -15,15 +15,24 @@ const positionBuffer = root
   .$usage("vertex");
 
 const renderPipelines = [
-  root.createRenderPipeline({ ...pipelineOptions, primitive: { topology: "point-list" } }),
-  root.createRenderPipeline({ ...pipelineOptions, primitive: { topology: "line-strip" } }),
-  root.createRenderPipeline({ ...pipelineOptions, primitive: { topology: "triangle-list" } }),
+  root.createRenderPipeline({
+    ...pipelineOptions,
+    primitive: { topology: "point-list" },
+  }),
+  root.createRenderPipeline({
+    ...pipelineOptions,
+    primitive: { topology: "line-strip" },
+  }),
+  root.createRenderPipeline({
+    ...pipelineOptions,
+    primitive: { topology: "triangle-list" },
+  }),
 ];
 
 let pointCount = 0;
 
 setupControls(canvas, (normX, normY) => {
-  pointCount = pointCount % MAX_POINTS + 1;
+  pointCount = (pointCount % MAX_POINTS) + 1;
 
   // Write the new point into the position buffer, at the current index.
   positionBuffer.patch({ [pointCount - 1]: [normX, normY] });
