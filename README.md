@@ -8,7 +8,7 @@ _This template was built without the use of generative AI._
 
 # Minimal, Clean TypeGPU Starter Code
 
-A minimal [TypeGPU](https://typegpu.com) template project, built with [Vite](https://vite.dev). This repo's goal is to "just work," and provide a simple and pragmatic base to begin your WebGPU + TypeGPU journey.
+A minimal [TypeGPU](https://typegpu.com) template project. This repo's goal is to "just work," and provide a simple and pragmatic base to begin your WebGPU + TypeGPU journey.
 
 Click to draw points, lines, and triangles. That's it.
 
