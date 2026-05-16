@@ -1,12 +1,18 @@
+<div align="center">
+
 ![Triangle](/assets/triangle-banner.png)
 
-# Minimal TypeGPU Starter Code
+</div>
 
-A minimal [TypeGPU](https://typegpu.com) project built with [Vite](https://vite.dev). This repo's goal is to "just work," and provide a reasonable base upon which to begin your WebGPU + TypeGPU journey.
+# Minimal, Clean TypeGPU Starter Code
 
-_Clicking on the canvas draws points, lines, and triangles._
+A minimal [TypeGPU](https://typegpu.com) template project, built with [Vite](https://vite.dev). This repo's goal is to "just work," and provide a simple and pragmatic base to begin your WebGPU + TypeGPU journey.
+
+This template draws points, lines, and triangles. That's it.
 
 ## Usage
+
+You'll need [npm](https://nodejs.org/en/download) or (preferably) [pnpm](https://pnpm.io/).
 
 ```sh
 pnpm i
@@ -24,6 +30,6 @@ If you have ideas for making this repo better, submit a pull request. All I ask 
 
 ## License
 
-Licenses are for nincompoops. Just drop a star, fork this repo, and start cooking!
+Licenses are for nincompoops. Just drop a star, hit `Use this template`, and start cooking!
 
-> Code inspired by [Konrad Reczko](https://www.linkedin.com/in/konrad-reczko-861778256/)'s [example code](https://stackblitz.com/edit/bvwfprkx?file=src%2Findex.ts).
+> Code inspired by [Konrad Reczko](https://www.linkedin.com/in/konrad-reczko-861778256/)'s [simple example](https://stackblitz.com/edit/bvwfprkx?file=src%2Findex.ts).
