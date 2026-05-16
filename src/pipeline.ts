@@ -1,4 +1,4 @@
-import { d, tgpu, TgpuPrimitiveState, TgpuRoot } from "typegpu";
+import { d, tgpu } from "typegpu";
 
 export const vertexLayout = tgpu.vertexLayout(d.arrayOf(d.vec2f));
 
@@ -7,7 +7,7 @@ const vertexShader = tgpu.vertexFn({
   out: { pos: d.builtin.position },
 })(({ pos }) => {
   "use gpu";
-  // This is TGSL code, which compiles into WGSL.
+  // This is TypeScript code which compiles into WGSL.
   return {
     pos: d.vec4f(pos, 0, 1),
   };
@@ -20,19 +20,11 @@ const fragmentShader = tgpu.fragmentFn({
   return d.vec4f(0.3, 0.98, 0.7, 1.0);
 });
 
-export function createRenderPipeline(
-  root: TgpuRoot,
-  format: GPUTextureFormat,
-  primitive: TgpuPrimitiveState,
-) {
-  const renderPipeline = root.createRenderPipeline({
-    attribs: { pos: vertexLayout.attrib },
-    vertex: vertexShader,
-    fragment: fragmentShader,
-    targets: { format: format },
-    // Further options include: depthStencil, multisample, primitive.
-    primitive: primitive,
-  });
 
-  return renderPipeline;
-}
+export const pipelineOptions = {
+  attribs: { pos: vertexLayout.attrib },
+  vertex: vertexShader,
+  fragment: fragmentShader,
+  // Further options include: depthStencil, multisample, primitive.
+} as const;
+
