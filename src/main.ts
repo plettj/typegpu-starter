@@ -1,29 +1,29 @@
-import { d } from "typegpu";
+import tgpu, { d } from "typegpu";
 import { setupControls, setupResizeObserver } from "./controls";
-import { initGPU } from "./gpu";
-import { createRenderPipeline, vertexLayout } from "./pipeline";
+import { pipelineOptions, vertexLayout } from "./pipeline";
 
 const MAX_POINTS = 3;
 
 const canvas = document.querySelector("canvas") as HTMLCanvasElement;
 setupResizeObserver(canvas);
 
-const { root, context, format } = await initGPU(canvas);
+const root = await tgpu.init();
+const context = root.configureContext({ canvas });
 
 const positionBuffer = root
   .createBuffer(d.arrayOf(d.vec2f, MAX_POINTS))
   .$usage("vertex");
+
 const renderPipelines = [
-  createRenderPipeline(root, format, { topology: "point-list" }),
-  createRenderPipeline(root, format, { topology: "line-strip" }),
-  createRenderPipeline(root, format, { topology: "triangle-list" }),
+  root.createRenderPipeline({ ...pipelineOptions, primitive: { topology: "point-list" } }),
+  root.createRenderPipeline({ ...pipelineOptions, primitive: { topology: "line-strip" } }),
+  root.createRenderPipeline({ ...pipelineOptions, primitive: { topology: "triangle-list" } }),
 ];
 
 let pointCount = 0;
 
 setupControls(canvas, (normX, normY) => {
-  if (pointCount >= MAX_POINTS) pointCount = 0;
-  pointCount = Math.min(pointCount + 1, MAX_POINTS);
+  pointCount = pointCount % MAX_POINTS + 1;
 
   // Write the new point into the position buffer, at the current index.
   positionBuffer.patch({ [pointCount - 1]: [normX, normY] });
