@@ -1,8 +1,21 @@
-# WebGPU Project
+# Minimal TypeGPU Starter Code
 
-Clicking on the canvas allows you to create points, lines, and triangles.
+A minimal [TypeGPU](https://typegpu.com) project built with [Vite](https://vite.dev). This repo's goal is to "just work" with modern tooling, and provide a reasonable base upon which to begin your WebGPU + TypeGPU journey.
 
-### Things to Learn
+_Clicking on the canvas allows you to create points, lines, and triangles._
 
-- [WebGPU](https://webgpufundamentals.org/webgpu/lessons/webgpu-fundamentals.html)
-- [TypeGPU](https://docs.swmansion.com/TypeGPU/why-typegpu/)
+## Getting Started
+
+​```sh
+pnpm i
+pnpm run dev
+​```
+
+**Recommended readings:**
+
+- [Your First GPU Program](https://docs.swmansion.com/TypeGPU/fundamentals/your-first-gpu-program/)
+- [WebGPU Fundamentals](https://webgpufundamentals.org/webgpu/lessons/webgpu-fundamentals.html)
+
+## License
+
+Licenses are for nincompoops. Just drop a star, fork this repo, and start cooking!
