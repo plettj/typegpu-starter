@@ -2,13 +2,15 @@
 
 ![Triangle](/assets/triangle-banner.png)
 
+_This template was built without the use of generative AI._
+
 </div>
 
 # Minimal, Clean TypeGPU Starter Code
 
 A minimal [TypeGPU](https://typegpu.com) template project, built with [Vite](https://vite.dev). This repo's goal is to "just work," and provide a simple and pragmatic base to begin your WebGPU + TypeGPU journey.
 
-This template draws points, lines, and triangles. That's it.
+Click to draw points, lines, and triangles. That's it.
 
 ## Usage
 
